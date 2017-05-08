@@ -5,7 +5,11 @@ include 'header.php';
 ?>
  <div "container">
    
-<div class="container flex-items-xs-center">
+<div class="container flex-items-xs-center mt-5">
+<header class="container flex-items-xs-center my-5">
+ <h1 class="text-uppercase text-xs-center">Welcome to thenr1blog</h1>
+ <p class="text-xs-center">Login or register now</p>
+</header>
  
       <form action="login.php?action=login" method="post">
         <input type="hidden" name="login" value="true" /> 
@@ -67,4 +71,3 @@ include 'header.php';
  <?php 
  
  require 'footer.php'; ?>
- 

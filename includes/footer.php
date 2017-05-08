@@ -1,13 +1,12 @@
-
-
 <script>
     $(document).ready(function(){
- $(document).on('click', '.like', function(){
+    $(".like").click(function(){
   if($(this).attr('title') == 'Like'){
    $that = $(this);
-   $.post('getLikes.php', {postId:$(this).attr('id'), action:'like'},function(){
+   $.post('getLikes.php', {postId:$(this).attr('id'), action:'like'},function(data){
     $that.text('Unlike');
     $that.attr('title','Unlike');
+  
    });
   }else{
    if($(this).attr('title') == 'Unlike'){
@@ -26,7 +25,7 @@
       setTimeout(function () {
         titleScroller(text.substr(1) + text.substr(0, 1));
       }, 100);
-    }(" THE NR 1 BLOG |"));
+    }(" THE NR 1 BLOG | By Owen, Joanna & Samir |"));
 
 </script>
 </body>

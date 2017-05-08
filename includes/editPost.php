@@ -1,14 +1,15 @@
 <?php
 include 'header.php';
 ?> 
-<div class="container flex-items-xs-center">
- <header class="container flex-items-xs-center mb-2">
+<div class="container flex-items-xs-center mt-5">
+ <header class="container flex-items-xs-center my-2">
  <h1 class="text-uppercase text-xs-center">Edit Post</h1>
  <p class="text-xs-center">You are logged in as <b class="text-uppercase"><?php echo htmlspecialchars( $_SESSION['username']) ?></b>. <a href="login.php?action=logout"?>Log out</a></p>
 </header>
+
+<div class="row flex-items-xs-center m-1">
 <?php foreach ( $post as $row ) { ?>
-      <form action="admin.php?action=editPost" method="post">
-      <h2>Edit BlogPost</h2>
+      <form action="admin.php?action=editPost" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">
         <input type="hidden" name="blogpostId" value="<?php echo $row["id"]?>" placeholder="<?php echo $row["id"]?>"/>
        <div class="form-group">
             <label for="title">Blog Post Title</label>
@@ -31,6 +32,6 @@ include 'header.php';
       </form>
       <?php } ?>
   </div>
-
+</div>
   <?php include 'footer.php'; ?>
 
