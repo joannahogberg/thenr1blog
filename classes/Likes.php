@@ -23,14 +23,56 @@ $pdo = new PDO(
   "mysql:host=localhost:8889;dbname=thenr1blog;charset=utf8",
   "root",
   "root", $options);
-
    $sql=$pdo->prepare("SELECT * FROM Likes WHERE postId=? and userId=?");
-    // var_dump($sql);
     $sql->execute(array($postId, $uid));
-//  $sql=$pdo->prepare("SELECT * FROM Likes WHERE postId=? and userId=?");
-//  $sql->execute(array($postId,$userId));
+return $sql->rowCount();
+
+
+}
+
+public static function getPostLike($postId,$uid){
+
+    $options = [ 
+  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+  PDO::ATTR_EMULATE_PREPARES   => false
+];
+
+$pdo = new PDO(
+  "mysql:host=localhost:8889;dbname=thenr1blog;charset=utf8",
+  "root",
+  "root", $options);
+
+   $sql=$pdo->prepare("SELECT * FROM `Likes` WHERE postId=? and userId=?");
+
+ 
+    $sql->execute(array($postId, $uid));
 
 return $sql->rowCount();
+
+
+}
+
+
+public static function getPostUnLike($postId,$uid){
+
+
+    $options = [ 
+  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+  PDO::ATTR_EMULATE_PREPARES   => false
+];
+
+$pdo = new PDO(
+  "mysql:host=localhost:8889;dbname=thenr1blog;charset=utf8",
+  "root",
+  "root", $options);
+
+   $sql=$pdo->prepare("SELECT 1 FROM `Likes` WHERE postId=? and userId=?");
+    $sql->execute(array($postId, $uid));
+
+return $sql->rowCount();
+
 
 
 }
@@ -49,13 +91,13 @@ $pdo = new PDO(
   "root", $options);
 
  $sql=$pdo->prepare("INSERT INTO Likes (postId, userId) VALUES(?, ?)");
+
  $sql->execute(array($postId, $uid));
 
 }
 
 public static function deleteLikes($postId, $uid){
 
-    echo"hello";
         $options = [ 
   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
