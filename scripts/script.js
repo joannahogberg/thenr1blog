@@ -1,4 +1,25 @@
 <script>
+	
+//------------------Ajax call for new blogpost----------------
+	
+	let form = document.getElementById('blogFormId');
+
+	form.addEventListener('submit', function(event){
+  
+  	//Prevent form from submitting
+  	event.preventDefault();
+
+  	//Do post request to php
+  	fetch('admin.php', {
+    method: 'POST',
+    body: new FormData(this) //format input-fields
+  	})
+  	.then(data => data.text())
+  	.then(text => console.log(text));
+	
+	});
+//-------------------End Ajax call for new blogpost-----------
+	
     $(document).ready(function(){
  $(document).on('click', '.like', function(){
   if($(this).attr('title') == 'Like'){

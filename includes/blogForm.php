@@ -11,7 +11,7 @@ include 'header.php';
  
    <div class="row flex-items-xs-center m-1">
 
-  <form action="admin.php?action=newBlogpost" method="POST" class="col-sm-10 col-md-10 col-lg-8 p-1">
+  <form id="blogFormId" action="admin.php?action=newBlogpost" method="POST" class="col-sm-10 col-md-10 col-lg-8 p-1">
   <div class="form-group">
   <label for="title">Blog title</label>
     <input type="text" name="title" class="form-control" placeholder="Name of the blogpost" class="form-control">

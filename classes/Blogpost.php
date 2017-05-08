@@ -165,7 +165,7 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
   
   }
 
-  public static function setLike($postId){
+  public function setLike($postId){
 
 
 
@@ -174,7 +174,7 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
 
   }
 
-  public static function removeLike($postId){
+  public function removeLike($postId){
 
 
 

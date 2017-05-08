@@ -13,7 +13,7 @@ class Database
 ];
  try{
     $pdo = new PDO(
-  "mysql:host=localhost:8889;dbname=thenr1blog;charset=utf8",
+  "mysql:host=localhost:3306;dbname=thenr1blog;charset=utf8",
   "root",
   "root", $options);
   }	  

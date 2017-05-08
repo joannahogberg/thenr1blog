@@ -30,6 +30,7 @@ function newPost() {
   $pdo = Database::connect();
     $blogpost = new Blogpost($pdo);    
     $blogpost->insert($_SESSION['userId']);
+	checkUserRole();
 }
  
  
@@ -55,9 +56,7 @@ $pdo = Database::connect();
   
   include 'editPost.php';
   }
- 
-
-  }
+}
  
  
 function deletePost() {
@@ -66,6 +65,28 @@ function deletePost() {
 $post = new Blogpost($pdo);
   $delPost = $post->getById($id);
   $post->delete($delPost);
+}
+
+function checkUserRole(){	
+	
+
+	if($_SESSION['loggedIn'] &&  $_SESSION['role'] == 'admin'){
+  
+  		$pdo = Database::connect();
+   		$posts = new Blogpost($pdo);
+  		$data = $posts->getPosts();
+		include 'adminPage.php';
+ 
+	}elseif($_SESSION['loggedIn'] &&  $_SESSION['role'] == 'user')
+	{
+		
+		$pdo = Database::connect();
+   		$posts = new Blogpost($pdo);
+  		$data = $posts->getPosts();
+		include 'userPage.php';
+		
+	}
+	
 }
   
 ?>

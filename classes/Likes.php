@@ -20,7 +20,7 @@ public static function getPostLikes($postId,$uid){
 ];
 
 $pdo = new PDO(
-  "mysql:host=localhost:8889;dbname=thenr1blog;charset=utf8",
+  "mysql:host=localhost:3306;dbname=thenr1blog;charset=utf8",
   "root",
   "root", $options);
 
@@ -44,7 +44,7 @@ echo "like";
 ];
 
 $pdo = new PDO(
-  "mysql:host=localhost:8889;dbname=thenr1blog;charset=utf8",
+  "mysql:host=localhost:3306;dbname=thenr1blog;charset=utf8",
   "root",
   "root", $options);
 
@@ -63,7 +63,7 @@ public static function deleteLikes($postId, $uid){
 ];
 
 $pdo = new PDO(
-  "mysql:host=localhost:8889;dbname=thenr1blog;charset=utf8",
+  "mysql:host=localhost:3306;dbname=thenr1blog;charset=utf8",
   "root",
   "root", $options);
 

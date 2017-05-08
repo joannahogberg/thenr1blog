@@ -1,10 +1,9 @@
 <?php
 session_start();
 
+var_dump($_SESSION['loggedIn']);
+
 include '../error.php';
-
-
-
 require '../classes/Users.php';
 require '../classes/Blogpost.php';
 require '../classes/Database.php';
@@ -28,8 +27,7 @@ switch ( $action ) {
     userExists();
     break;
   default:
-    firstPage();
-    // listPosts();
+   listBlogposts();
 }
 
 
@@ -46,6 +44,7 @@ function login(){
     $_SESSION['loggedIn'] = true;
     $_SESSION['userId'] = $user['id'];
     $_SESSION['username'] = $user['username'];
+    $_SESSION['role'] = $user['role'];
 
   setcookie('userId',$user['id'],time()+60*60*24*365);
     $_COOKIE['userId'] = $user['id'];
@@ -65,10 +64,10 @@ function login(){
     //   Login successful: Create a session and redirect to the viewer homepage
     $_SESSION['loggedIn'] = true;
     $_SESSION['userId'] = $user['id'];
-   
     $_SESSION['username'] = $user['username'];
     setcookie('userId',$user['id'],time()+60*60*24*365);
     $_COOKIE['userId'] = $user['id'];
+     $_SESSION['role'] = $user['role'];
     viewPosts();
   
     } else {
@@ -82,11 +81,11 @@ function login(){
     //   Login successful: Create a session and redirect to the user homepage
     $_SESSION['loggedIn'] = true;
     $_SESSION['userId'] = $user['id'];
-  
     $_SESSION['username'] = $user['username'];
     setcookie('userId',$user['id'],time()+60*60*24*365);
     $_COOKIE['userId'] = $user['id'];
-   userPage();
+    $_SESSION['role'] = $user['role'];
+    userPage();
   
     } else {
     //   Login failed: display an error message to the user
@@ -100,8 +99,7 @@ function login(){
 }
 
 function logout() {
- unset( $_SESSION['username'] );
-
+ unset( $_SESSION['username']);
   require 'loginForm.php';
 }
 
@@ -175,13 +173,6 @@ function adminPage(){
 
 }
 
-function firstPage(){
-    $pdo = Database::connect();
-   $posts = new Blogpost($pdo);
-  $data = $posts->listLatestPost();
-  include 'firstPage.php';
-}
-
 function listPosts() {
 
     $pdo = Database::connect();
@@ -189,6 +180,24 @@ function listPosts() {
   $data = $posts->listLatestPost();
   include 'includes/firstPage.php';
 }
-  
-  
+
+function listBlogposts(){
+  //   $pdo = Database::connect();
+  //  $posts = new Blogpost($pdo);
+  // $data = $posts->listLatestPost();
+  // include 'firstPage.php';
+ if($_SESSION['loggedIn'] &&  $_SESSION['role'] == 'admin'){
+  // echo '<h1>You are logged in as ' . $_SESSION['role'] . '!</h1>';
+  adminPage();
  
+}else if ($_SESSION['loggedIn'] &&  $_SESSION['role'] == 'user') {
+  // echo '<h1>NEJJEJEJEJEJ!</h1>';
+   userPage();
+}else if ($_SESSION['loggedIn'] &&  $_SESSION['role'] == 'viewer'){
+   viewPosts();
+}
+else{
+  require("loginForm.php" );
+}
+
+}

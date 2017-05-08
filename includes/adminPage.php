@@ -1,7 +1,8 @@
 <?php session_start();
 require 'header.php';
-  require '../errors.php';
+  //require '../errors.php';
 require '../classes/Likes.php';
+
 ?>
 
 <div class="container flex-items-xs-center mt-5">
