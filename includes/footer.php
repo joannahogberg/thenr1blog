@@ -1,4 +1,7 @@
-<script>
+
+<script src="../scripts/script.js"></script>
+
+<!-- <script>
     $(document).ready(function(){
       $(".like").click(function(){
         if($(this).attr('title') == 'Like'){
@@ -26,6 +29,6 @@
       }, 100);
     }(" THE NR 1 BLOG | By Owen, Joanna & Samir |"));
 
-</script>
+</script> -->
 </body>
 </html>

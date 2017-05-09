@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*                                            AJAX-updatefrom                                                               */
+/*                                            AJAX-updateform                                                               */
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-let updateForm = document.getElementById('editPost');
+let updateForm = document.getElementById('editPostForm');
 
 updateForm.addEventListener('submit', function(event){
   
@@ -12,7 +12,7 @@ updateForm.addEventListener('submit', function(event){
   //Do post request to php
   fetch('admin.php', {
     method: 'UPDATE',
-    body: new FormData(this) //format input-fields
+    body: new FormData(this)//format input-fields
   })
   .then(data => data.text())
   .then(text => console.log(text));
