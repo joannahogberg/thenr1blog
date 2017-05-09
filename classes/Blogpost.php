@@ -148,7 +148,7 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
      ":title" => $_POST['title'],
     ":content" => $_POST['content'],
    ":id" => $_POST['blogpostId']]);
-    var_dump($_POST);
+    // var_dump($_POST);
     $pdo = null;
   }
  
@@ -165,7 +165,7 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
   
   }
 
-  public static function setLike($postId){
+  public function setLike($postId){
 
 
 
@@ -174,7 +174,7 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
 
   }
 
-  public static function removeLike($postId){
+  public function removeLike($postId){
 
 
 

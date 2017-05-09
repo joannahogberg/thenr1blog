@@ -1,8 +1,7 @@
 <?php
 // include 'includes/header.php';
+
 require 'errors.php';
-
-
 require 'classes/Blogpost.php';
 require 'classes/Database.php';
 

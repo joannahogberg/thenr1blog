@@ -1,16 +1,12 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 include '../error.php';
-
-
-
 require '../classes/Users.php';
 require '../classes/Blogpost.php';
 require '../classes/Database.php';
-
-
-
 
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
 
@@ -46,6 +42,7 @@ function login(){
     $_SESSION['loggedIn'] = true;
     $_SESSION['userId'] = $user['id'];
     $_SESSION['username'] = $user['username'];
+    $_SESSION['role'] = $user['role'];
 
   setcookie('userId',$user['id'],time()+60*60*24*365);
     $_COOKIE['userId'] = $user['id'];
@@ -67,6 +64,7 @@ function login(){
     $_SESSION['userId'] = $user['id'];
    
     $_SESSION['username'] = $user['username'];
+    $_SESSION['role'] = $user['role'];
     setcookie('userId',$user['id'],time()+60*60*24*365);
     $_COOKIE['userId'] = $user['id'];
     viewPosts();
@@ -84,6 +82,7 @@ function login(){
     $_SESSION['userId'] = $user['id'];
   
     $_SESSION['username'] = $user['username'];
+    $_SESSION['role'] = $user['role'];
     setcookie('userId',$user['id'],time()+60*60*24*365);
     $_COOKIE['userId'] = $user['id'];
    userPage();

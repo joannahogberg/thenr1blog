@@ -1,9 +1,12 @@
-  <?php 
-  session_start();
+<?php 
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+  
   include 'header.php';
   require '../errors.php';
   require '../classes/Likes.php';
-  ?>
+?>
 <div class="container flex-items-xs-center mt-5">
  <header class="container flex-items-xs-center my-2">
  <h1 class="text-uppercase text-xs-center">All blogposts</h1>

@@ -67,8 +67,8 @@ $pdo = new PDO(
   "root",
   "root", $options);
 
-   $sql=$pdo->prepare("DELETE FROM Likes WHERE postId=? AND userId=?");
- $sql->execute(array($postId, $uid));
+  $sql=$pdo->prepare("DELETE FROM Likes WHERE postId=? AND userId=?");
+  $sql->execute(array($postId, $uid));
 
 
 }

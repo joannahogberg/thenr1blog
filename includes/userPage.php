@@ -1,4 +1,8 @@
-<?php session_start();
+<?php 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 include 'header.php';
 require '../errors.php';
 require '../classes/Likes.php';

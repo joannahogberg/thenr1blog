@@ -9,7 +9,7 @@ include 'header.php';
 
 <div class="row flex-items-xs-center m-1">
 <?php foreach ( $post as $row ) { ?>
-      <form action="admin.php?action=editPost" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">
+      <form id="editPost" action="admin.php?action=editPost" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">
         <input type="hidden" name="blogpostId" value="<?php echo $row["id"]?>" placeholder="<?php echo $row["id"]?>"/>
        <div class="form-group">
             <label for="title">Blog Post Title</label>
@@ -26,7 +26,7 @@ include 'header.php';
  </div>
         <div class="buttons">
           <input type="submit" name="saveChanges" value="Save Changes" />
-          <input type="submit" formnovalidate name="cancel" value="Cancel" />
+          <input type="submit" name="cancel" value="Cancel" />
         </div>
  
       </form>
