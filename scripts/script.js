@@ -2,7 +2,7 @@
 /*                                            AJAX-updatefrom                                                               */
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-let updateForm = document.getElementById('blogFormId');
+let updateForm = document.getElementById('editPost');
 
 updateForm.addEventListener('submit', function(event){
   
@@ -11,7 +11,7 @@ updateForm.addEventListener('submit', function(event){
 
   //Do post request to php
   fetch('admin.php', {
-    method: 'POST',
+    method: 'UPDATE',
     body: new FormData(this) //format input-fields
   })
   .then(data => data.text())
