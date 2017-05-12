@@ -2,16 +2,14 @@
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-  // session_start();
   include 'header.php';
   include 'navbar.php';
   require '../errors.php';
-  // require '../classes/Likes.php';
+ 
   ?>
 <div class="container flex-items-xs-center">
  <header class="container flex-items-xs-center my-2">
 <h2 class="text-uppercase text-xs-center"><?php echo $header;?></h2>
- <!--<p class="text-xs-center">You are logged in as <b class="text-uppercase"><?php echo htmlspecialchars( $_SESSION['username']) ?></b>. <a href="login.php?action=logout"?>Log out</a></p>-->
 </header>
 <div class="row flex-items-xs-center m-1">
 <?php foreach ( $data as $row ) : ?>

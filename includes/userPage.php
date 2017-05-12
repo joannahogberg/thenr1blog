@@ -2,17 +2,14 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-// session_start();
 include 'header.php';
 include 'navbar.php';
 require '../errors.php';
-// require '../classes/Likes.php';
 
 ?>
 
 <div class="container flex-items-xs-center">
  <header class="container flex-items-xs-center my-2">
- <!--<h2  class="text-uppercase text-xs-center">All blogposts</h2>-->
  <h2 class="text-uppercase text-xs-center"><?php echo $header;?></h2>
  <p><a href="login.php"><span class="glyphicon glyphicon-menu-left"></span> Back to list</a></p>
 </header>

@@ -176,19 +176,22 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
   
   }
 
-  // public static function setLike($postId){
-
+ /**
+  * Updates likes+1 for selected post.
+  */
  public function setLike($postId){
-
+echo"hello";
      $st=$this->pdo->prepare("UPDATE `Blogposts` SET likes=likes+1 WHERE id=?");
  $st->execute(array($postId));
 
   }
 
-  // public static function removeLike($postId){
+ /**
+  * Updates likes-1 for selected post.
+  */
 
 public function removeLike($postId){
-
+echo"hello";
    $st=$this->pdo->prepare("UPDATE `Blogposts`SET likes=likes-1 WHERE id=?");
  $st->execute(array($_POST['postId']));
 

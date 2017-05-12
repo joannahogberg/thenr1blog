@@ -19,7 +19,6 @@ switch ( $action ) {
     editPost();
     break;
   case 'listMyPosts':
- 
     myPosts();
     break;
   case 'deletePost':
@@ -84,7 +83,9 @@ $pdo = Database::connect();
 $pdo = Database::connect();
 $postToRead = new Blogpost($pdo);
   $post = $postToRead->getById($id);
-  $rowcount = Likes::getPostLikes($id,$_SESSION['userId']);
+$getLikes= new Likes($pdo);
+$rowcount = $getLikes->getPostLikes($id,$_SESSION['userId']);
+  // $rowcount = Likes::getPostLikes($id,$_SESSION['userId']);
   include 'readPost.php';
 
   }
