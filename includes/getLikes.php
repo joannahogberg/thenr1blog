@@ -9,7 +9,6 @@ require '../classes/Blogpost.php';
 $action=$_POST['action'];
 
 if ($action=='like'){
-
 Likes::insertLikes($_POST['postId'],$_COOKIE['userId']);
 $pdo = Database::connect();
     $blogpost = new Blogpost($pdo);
@@ -25,3 +24,5 @@ $pdo = Database::connect();
 $blogpost->removeLike($_POST['postId']);
 
  }
+
+

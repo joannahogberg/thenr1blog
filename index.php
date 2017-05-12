@@ -1,14 +1,14 @@
 <?php
-// include 'includes/header.php';
+session_start();
 require 'errors.php';
-
-
 require 'classes/Blogpost.php';
 require 'classes/Database.php';
 
-// include 'includes/admin/loginForm.php';
+ unset( $_SESSION['username']);
+ unset( $_SESSION['loggedIn']);
+ unset( $_SESSION['role']);
+ unset( $_SESSION['userId']);
 
-// echo "<div><a href='includes/loginForm.php'>Login</a></div>";
 
 function listPosts() {
 
@@ -19,10 +19,7 @@ function listPosts() {
 }
 
 listPosts();
-// require 'includes/login.php';
 
-
-// include 'includes/footer.php';
 
 
 

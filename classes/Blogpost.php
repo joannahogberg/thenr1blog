@@ -72,7 +72,8 @@ $this->pdo = $pdo;
  
   public function getById( $id ) {
    
-   $st = $this->pdo->prepare("SELECT * FROM `Blogposts` WHERE id = :id");
+   $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id
+WHERE Blogposts.id=:id");
    $st->execute(
      [":id" => $id]
    );
@@ -95,6 +96,18 @@ $this->pdo = $pdo;
 $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Blogposts.datePosted DESC");
 
  $st->execute();
+
+  $data = $st->fetchAll();
+
+  return $data;
+
+}
+
+ 
+  public function getMyPosts($userId){
+$st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id WHERE userId=? ORDER BY Blogposts.datePosted DESC");
+
+ $st->execute(array($userId));
 
   $data = $st->fetchAll();
 
@@ -148,8 +161,6 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
      ":title" => $_POST['title'],
     ":content" => $_POST['content'],
    ":id" => $_POST['blogpostId']]);
-    var_dump($_POST);
-    $pdo = null;
   }
  
  
