@@ -8,13 +8,12 @@ include 'navbar.php';
 <div class="container flex-items-xs-center">
  <header class="container flex-items-xs-center my-2">
  <h1 class="text-uppercase text-xs-center">Edit Post</h1>
- <!--<p class="text-xs-center">You are logged in as <b class="text-uppercase"><?php echo htmlspecialchars( $_SESSION['username']) ?></b>. <a href="login.php?action=logout"?>Log out</a></p>-->
 </header>
 
 <div class="row flex-items-xs-center m-1">
 <?php foreach ( $post as $row ) { ?>
-      <!--<form id="editForm" action="admin.php?action=editPost" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">-->
-         <form id="editForm" action="editPost.php" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">
+      <form id="editForm" action="admin.php?action=editPost" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">
+         <!--<form id="editForm" action="editPost.php" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">-->
    
         <input type="hidden" name="blogpostId" value="<?php echo $row["id"]?>" placeholder="<?php echo $row["id"]?>"/>
        <div class="form-group">

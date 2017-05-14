@@ -18,13 +18,9 @@ body{
 a{
   color: teal;
 }
-/*.footer{
-    position:fixed;
-  left: 0;
-  right: 0;
-   bottom:0;
-   padding: 1em;
-}*/
+li{
+  list-style: none;
+}
 
 .like{
   font-size: 1.5em;

@@ -4,8 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include '../errors.php';
 include 'header.php';
-// require 'postLogReg.php';
-
 
 ?>
  <div "container">
@@ -19,6 +17,9 @@ include 'header.php';
   
       <form id="loginForm" action="login.php?action=login" method="post" class="col-sm-10 col-md-10 col-lg-5 m-1">
         <!--<form id="loginForm" action="postLogReg.php" method="post" class="col-sm-10 col-md-10 col-lg-5 m-1">-->
+          <?php if ( isset( $errorMessage ) ) { ?>
+        <div class="errorMessage"><?php echo $errorMessage; ?></div>
+<?php } ?>
          <span id="messLog" class="text-uppercase text-xs-center"></span>
         <input type="hidden" name="login" value="true" /> 
          <fieldset class="scheduler-border">

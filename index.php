@@ -4,6 +4,8 @@ require 'errors.php';
 require 'classes/Blogpost.php';
 require 'classes/Database.php';
 
+
+//Unset session values to make sure navigation will work
  unset( $_SESSION['username']);
  unset( $_SESSION['loggedIn']);
  unset( $_SESSION['role']);
@@ -11,7 +13,6 @@ require 'classes/Database.php';
 
 
 function listPosts() {
-
     $pdo = Database::connect();
    $posts = new Blogpost($pdo);
   $data = $posts->listLatestPost();

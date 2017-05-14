@@ -26,21 +26,22 @@ $error = false;
   // basic name validation
   if (empty($name)) {
     $error = true;
-   echo " Please enter your full name.";
+   echo " Please enter your full name.<br>";
   } else if (strlen($name) < 3) {
    $error = true;
-   echo " Name must have atleat 3 characters.";
+   echo " Name must have atleat 3 characters. <br>";
   } else if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
    $error = true;
-  echo " Name must contain alphabets and space.";
+  echo " Name must contain alphabets A-Z and/or space. <br>";
   }
   else{
+    //check if username is already taken
     $pdo = Database::connect();
     $user = new Users($pdo);
     $exUser = $user->getUser($_POST['username']);
     if($exUser){
     $error = true;
-    echo " Provided name is already in use, selesct another name.";
+    echo " Provided name is already in use, selesct another name. <br>";
     }
 
   }
@@ -51,25 +52,24 @@ $error = false;
     // check if e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
        $error = true;
-   echo " Please enter valid email address.";
+   echo " Please enter valid email address. <br>";
     }
   }
 
   // password validation
   if (empty($pass)){
-    
    $error = true;
-   echo " Please enter password.";
+   echo " Please enter password.<br>";
   } else if(strlen($pass) < 6) {
    $error = true;
   echo " Password must have atleast 6 characters.";
   }
-
+//if no errors insert new user and return success
  if(!$error) {
  $pdo = Database::connect();
  $user = new Users($pdo);
  $user->newUser($_POST);
- echo json_encode(array("username"=>$name,"email"=>$email, "password"=>$pass));
+ echo "success";
  }
 
  }

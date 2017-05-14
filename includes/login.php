@@ -44,7 +44,7 @@ function login(){
   
     } else {
     //   Login failed: display an error message to the user
-      echo "Incorrect username or password. Please try again.";
+       $errorMessage= "Incorrect username or password <span class='glyphicon glyphicon-thumbs-down'></span> Please try again.";
       require 'loginForm.php';
    
     }
@@ -63,7 +63,7 @@ function login(){
   
     } else {
     //   Login failed: display an error message to the user
-      echo "Incorrect username or password. Please try again.";
+      $errorMessage= "Incorrect username or password <span class='glyphicon glyphicon-thumbs-down'></span> Please try again.";
     require 'loginForm.php';
     }
   }
@@ -81,7 +81,7 @@ function login(){
   
     } else {
     //   Login failed: display an error message to the user
-      echo "Incorrect username or password. Please try again.";
+     $errorMessage= "Incorrect username or password <span class='glyphicon glyphicon-thumbs-down'></span> Please try again.";
     require 'loginForm.php';
     }
   }

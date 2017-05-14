@@ -120,7 +120,7 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
     $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Blogposts.datePosted DESC LIMIT 5");
    
     $st->execute();
-  $data = $st->fetchAll();
+  $data = $st->fetchAll(PDO::FETCH_ASSOC);
 
  
   return $data;
@@ -128,6 +128,43 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
 
 
  }
+
+ public function listById(){
+    $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Blogposts.id DESC");
+    $st->execute();
+  $data = $st->fetchAll(PDO::FETCH_ASSOC);
+  return $data;
+
+ }
+
+  public function listByLikes(){
+    $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Blogposts.likes DESC");
+    $st->execute();
+  $data = $st->fetchAll(PDO::FETCH_ASSOC);
+  return $data;
+
+ }
+
+  public function listByPublisherASC(){
+   
+    $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Users.username ASC");
+    $st->execute();
+  $data = $st->fetchAll(PDO::FETCH_ASSOC);
+  return $data;
+ }
+
+   public function listByPublisherDESC(){
+   
+    $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Users.username DESC");
+    $st->execute();
+  $data = $st->fetchAll(PDO::FETCH_ASSOC);
+
+  return $data;
+
+
+
+ }
+
  
   /**
   * Inserts the current blogpost object into the database, and sets its ID property.
