@@ -116,7 +116,7 @@ function checkUserRole(){
    		$posts = new Blogpost($pdo);
   		$data = $posts->getPosts();
       $header = "All BlogPosts";
-		include 'userPage.php';
+		include 'viewerPage.php';
 		
 	}
 	

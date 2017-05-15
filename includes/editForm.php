@@ -9,13 +9,17 @@ include 'navbar.php';
  <header class="container flex-items-xs-center my-2">
  <h1 class="text-uppercase text-xs-center">Edit Post</h1>
 </header>
-
+ <div id="message" class="row flex-items-xs-center m-1">
+ <p><a href="login.php"><span class="glyphicon glyphicon-menu-left"></span> Back to list</a></p>
+ </div>
 <div class="row flex-items-xs-center m-1">
+    
 <?php foreach ( $post as $row ) { ?>
-      <form id="editForm" action="admin.php?action=editPost" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">
-         <!--<form id="editForm" action="editPost.php" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">-->
+      <!--<form id="editForm" action="admin.php?action=editPost" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">-->
+         <form id="editForm" action="editPost.php" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">
    
         <input type="hidden" name="blogpostId" value="<?php echo $row["id"]?>" placeholder="<?php echo $row["id"]?>"/>
+         <input type="hidden" name="saveChanges" value="saveChanges" placeholder="saveChanges"/>
        <div class="form-group">
             <label for="title">Blog Post Title</label>
             <input type="text" name="title" id="title" placeholder="Post title" required autofocus maxlength="255" class="form-control" value="<?php echo $row["title"];?>" />
@@ -30,8 +34,12 @@ include 'navbar.php';
      
  </div>
         <div class="buttons">
-          <input class="subEdits" type="submit" name="saveChanges" value="Save Changes" />
-          <input class="subEdits" type="submit" formnovalidate name="cancel" value="Cancel" />
+          <!--<input class="subEdits" type="submit" name="saveChanges" value="Save Changes" />
+          <input class="subEdits" type="submit" formnovalidate name="cancel" value="Cancel" />-->
+
+          <button  value="save" type="submit" class="updatePost btn btn-info"><span class="glyphicon glyphicon-check"></span> Save Changes</button>
+
+          <button value="cancel" type="submit" formnovalidate class="updatePost btn btn-info"><span class="glyphicon glyphicon-remove-circle"></span> Cancel</button>
         </div>
  
       </form>

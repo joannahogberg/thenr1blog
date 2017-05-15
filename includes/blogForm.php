@@ -16,8 +16,8 @@ include 'navbar.php';
  </div>
    <div class="row flex-items-xs-center m-1">
      <div id="form-messages"></div>
-   <!--<form id="blogFormId" action="editPost.php" method="POST" class="col-sm-10 col-md-10 col-lg-8 p-1">-->
-      <form id="editForm" action="admin.php?action=newBlogpost" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">
+   <form id="blogFormId" action="editPost.php" method="POST" class="col-sm-10 col-md-10 col-lg-8 p-1">
+      <!--<form id="editForm" action="admin.php?action=newBlogpost" method="post" class="col-sm-10 col-md-10 col-lg-8 p-1">-->
   <input type="hidden" name="userId" value="<?php echo $_SESSION['userId']?>" placeholder="<?php echo $_SESSION['userId']?>"/>
   <input type="hidden" name="newBlogpost" value="newBlogpost" placeholder="newBlogpost"/>
   <div class="form-group">
