@@ -26,5 +26,12 @@ li{
   font-size: 1.5em;
 }
 
+.title:first-letter{
+   text-transform: capitalize;
+}
+span.username{
+   text-transform: capitalize;
+}
+
 
 

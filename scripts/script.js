@@ -57,8 +57,17 @@ $("#topPosts").click(function(){
 
     $.post('postSortBy.php', {action:'topPosts'},function(data) {
    console.log( "success" );
-   $('#articles').html(data);
+//    $('#articles').html(data);
       $('#header2').text("sorted by most likes");
+    let html="";
+    data = JSON.parse(data)
+    console.log(data);
+     for (prop in data) {
+         html+=`<article class='col-sm-10 col-md-10 col-lg-8 p-1 thumbnail'><h4 class='title mb-1'> ${data[prop].title}</h4><h6 class='text-muted'> Posted by <span class='username'>${data[prop].username}</span> |  ${data[prop].datePosted}  | <span class='glyphicon glyphicon-heart'></span> ${data[prop].likes}</h6><p> <a href='admin.php?action=readPost&amp;postId=${data[prop].id}'> Read BlogPost<span class='glyphicon glyphicon-eye-open'></span></a></p>
+    </article>`;
+     }
+
+      $('#articles').html(html);
 })
   .done(function() {
     console.log( "second success" );
@@ -75,11 +84,20 @@ $("#topPosts").click(function(){
 
     $.post('postSortBy.php', {action:'lastPosted'},function(data) {
   console.log( "success" );
-   $('#articles').html(data);
+//    $('#articles').html(data);
    $('#header2').text("sorted by date posted");
+      let html="";
+    data = JSON.parse(data)
+    console.log(data);
+     for (prop in data) {
+         html+=`<article class='col-sm-10 col-md-10 col-lg-8 p-1 thumbnail'><h4 class='title mb-1'> ${data[prop].title}</h4><h6 class='text-muted'> Posted by <span class='username'>${data[prop].username}</span> |  ${data[prop].datePosted}  | <span class='glyphicon glyphicon-heart'></span> ${data[prop].likes}</h6><p> <a href='admin.php?action=readPost&amp;postId=${data[prop].id}'> Read BlogPost<span class='glyphicon glyphicon-eye-open'></span></a></p>
+    </article>`;
+     }
+
+      $('#articles').html(html);
 })
   .done(function() {
-    console.log( "second success" );
+    console.log( "second success");
   })
   .fail(function() {
     console.log( "error" );
@@ -93,8 +111,17 @@ $("#topPosts").click(function(){
 
     $.post('postSortBy.php', {action:'postedByA'},function(data) {
    console.log( "success" );
-   $('#articles').html(data);
+//    $('#articles').html(data);
     $('#header2').text("sorted by publisher a-ö");
+       let html="";
+    data = JSON.parse(data)
+    console.log(data);
+     for (prop in data) {
+         html+=`<article class='col-sm-10 col-md-10 col-lg-8 p-1 thumbnail'><h4 class='title mb-1'> ${data[prop].title}</h4><h6 class='text-muted'> Posted by <span class='username'>${data[prop].username}</span> |  ${data[prop].datePosted}  | <span class='glyphicon glyphicon-heart'></span> ${data[prop].likes}</h6><p> <a href='admin.php?action=readPost&amp;postId=${data[prop].id}'> Read BlogPost<span class='glyphicon glyphicon-eye-open'></span></a></p>
+    </article>`;
+     }
+
+      $('#articles').html(html);
 })
   .done(function() {
     console.log( "second success" );
@@ -111,8 +138,17 @@ $("#topPosts").click(function(){
 
     $.post('postSortBy.php', {action:'postedByZ'},function(data) {
    console.log( "success" );
-   $('#articles').html(data);
+//    $('#articles').html(data);
     $('#header2').text("sorted by publisher ö-a");
+       let html="";
+    data = JSON.parse(data)
+    console.log(data);
+     for (prop in data) {
+         html+=`<article class='col-sm-10 col-md-10 col-lg-8 p-1 thumbnail'><h4 class='title mb-1'> ${data[prop].title}</h4><h6 class='text-muted'> Posted by <span class='username'>${data[prop].username}</span> |  ${data[prop].datePosted}  | <span class='glyphicon glyphicon-heart'></span> ${data[prop].likes}</h6><p> <a href='admin.php?action=readPost&amp;postId=${data[prop].id}'> Read BlogPost<span class='glyphicon glyphicon-eye-open'></span></a></p>
+    </article>`;
+     }
+
+      $('#articles').html(html);
 })
   .done(function() {
     console.log( "second success" );
@@ -122,6 +158,7 @@ $("#topPosts").click(function(){
   })
   .always(function() {
     console.log( "finished" );
+    
   });
  });
 
