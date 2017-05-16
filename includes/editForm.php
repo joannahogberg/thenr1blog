@@ -34,11 +34,7 @@ include 'navbar.php';
      
  </div>
         <div class="buttons">
-          <!--<input class="subEdits" type="submit" name="saveChanges" value="Save Changes" />
-          <input class="subEdits" type="submit" formnovalidate name="cancel" value="Cancel" />-->
-
           <button  value="save" type="submit" class="updatePost btn btn-info"><span class="glyphicon glyphicon-check"></span> Save Changes</button>
-
           <button value="cancel" type="submit" formnovalidate class="updatePost btn btn-info"><span class="glyphicon glyphicon-remove-circle"></span> Cancel</button>
         </div>
  

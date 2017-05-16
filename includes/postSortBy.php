@@ -9,15 +9,11 @@ require '../classes/Database.php';
 $action=$_POST['action'];
 
 if($action == 'topPosts'){
-  
     $pdo = Database::connect();
    $posts = new Blogpost($pdo);
   $data = $posts->listByLikes();
 // sortPosts($data);
-
 echo json_encode($data);
-
-
 }
 elseif ($action == 'lastPosted'){
     $pdo = Database::connect();
@@ -25,9 +21,6 @@ elseif ($action == 'lastPosted'){
   $data = $posts->listById();
 // sortPosts($data);
 echo json_encode($data);
-
-
-
 }
 elseif ($action == 'postedByA'){
     $pdo = Database::connect();

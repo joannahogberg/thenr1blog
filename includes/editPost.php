@@ -15,15 +15,8 @@ if ( isset($_POST['saveChanges'] ) ) {
   $postEdited = new Blogpost($pdo);
  $postEdited -> storeFormValues($_POST);
  $postEdited -> update($pdo);
-
-
  
   } 
-  else if (isset( $_POST['cancel'] ) ) {
- 
- 
- 
-  }
   else if(isset($_POST['newBlogpost'])){
       $pdo = Database::connect();
       $blogpost = new Blogpost($pdo);    

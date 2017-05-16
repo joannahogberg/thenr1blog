@@ -9,12 +9,10 @@ $.post( 'postLogReg.php', $("#regForm").serialize())
         console.log(data);
         if(data == "success"){
        $('#messReg').html('<div class"col"><p class="text-xs-center">Successfully registered, you may login now <span class="glyphicon glyphicon-thumbs-up"></span></p></div>');
-  
 }
     else{
           $('#messReg').html('<div class"col"><p class="text-xs-center">'+data+'&nbsp; <span class="glyphicon glyphicon-thumbs-down"></span></p></div>');
     }
-
   } )
   .fail(function(response) {
         $('#messReg').html('<div class"col"><p class="text-xs-center"><span class="glyphicon glyphicon-info-sign"> Something went wrong, try again later...</p></div>');
@@ -54,13 +52,15 @@ $.post('editPost.php', $("#blogFormId").serialize(), function() {
   );
 
   
-    $(".updatePost").click(function(){ //on click at button
+    $(".updatePost").click(function(event){ //on click at button
+     event.preventDefault();
     if($(this).attr('value')== 'save'){
-    $.post('editPost.php', $("#editForm").serialize(), function() {
+    $.post('editPost.php', $("#editForm").serialize(), function() { 
     })
-  .done(function() {
+  .done(function(data) {
+
    console.log( "second success" );
-   $('#message').html('<div class"col"><h5 class="text-xs-center">BlogPost was successfully updated <span class="glyphicon glyphicon-ok"></span></h5><p class="text-xs-center"><a href="login.php">  Go back to BlogPost list <span class="glyphicon glyphicon-list-alt"></span></a> Or continue editing <span class="glyphicon glyphicon-pencil"></span></p></div>');
+ $('#message').html('<div class"col"><h5 class="text-xs-center">BlogPost was successfully updated <span class="glyphicon glyphicon-ok"></span></h5><p class="text-xs-center"><a href="login.php">  Go back to BlogPost list <span class="glyphicon glyphicon-list-alt"></span></a> Or continue editing <span class="glyphicon glyphicon-pencil"></span></p></div>');
   })
   .fail(function(response) {
          $('#message').html('<div class"col"><h5 class="text-xs-center">BlogPost did not get updated <span class="glyphicon glyphicon-thumbs-down"></span></h5><p class="text-xs-center"><a href="login.php">  Go back to BlogPost list <span class="glyphicon glyphicon-list-alt"></span></a> Please try again <span class="glyphicon glyphicon-pencil"></span></p></div>');
@@ -70,7 +70,7 @@ $.post('editPost.php', $("#blogFormId").serialize(), function() {
    console.log( "finished" );
   });
     }else{
-         $('#message').html('<div class"col"><h5 class="text-xs-center">Editing was canceled</h5><p class="text-xs-center"><a href="login.php">  Go back to BlogPost list <span class="glyphicon glyphicon-list-alt"></span></a></p></div>');
+        $('#message').html('<div class"col"><h5 class="text-xs-center">Editing session was cancelled</h5><p class="text-xs-center"><a href="login.php">  Go back to BlogPost list <span class="glyphicon glyphicon-list-alt"></span></a> Or continue editing <span class="glyphicon glyphicon-pencil"></span></p></div>');
         return false;
     }
    }
