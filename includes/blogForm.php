@@ -6,7 +6,7 @@ require '../errors.php';
 include 'header.php';
 ?>
 
-<div class="container flex-items-xs-center mt-5">
+<div id="blogFormID" class="container flex-items-xs-center mt-5">
  <header class="container flex-items-xs-center my-2">
  <h1 class="text-uppercase text-xs-center">Add a new BlogPost</h1>
  <p class="text-xs-center">You are logged in as <b class="text-uppercase"><?php echo htmlspecialchars( $_SESSION['username']) ?></b>. <a href="login.php?action=logout"?>Log out</a></p>
