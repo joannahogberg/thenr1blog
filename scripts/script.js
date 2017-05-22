@@ -1,8 +1,19 @@
 $(document).ready(function(){
 
+ /**
+  * jQuery.post() functions for all AJAx calls to load data from the server using a HTTP POST request.
+  *
+  */
 
-$("#regForm").submit(function(event){
-event.preventDefault();
+
+ /**
+  * Ajax call for when new registration is made
+  * DOM manipulation to display message to user
+  */
+
+$("#regForm").submit(function(event){ //on submit form
+
+      event.preventDefault();
 
 $.post( 'postLogReg.php', $("#regForm").serialize())
   .done(function( data ) {
@@ -20,6 +31,7 @@ $.post( 'postLogReg.php', $("#regForm").serialize())
   })
   .always(function() {
    console.log( "finished" );
+    //clear form values
     $('#email').val('');
     $('#username2').val('');
     $('#pass2').val('');
@@ -28,7 +40,13 @@ $.post( 'postLogReg.php', $("#regForm").serialize())
    }
   );
 
- $("#blogFormId").submit(function(event){
+
+  /**
+  * Ajax call for when new blogpost is made
+  * DOM manipulation to display message to user when post is posted or if session failed
+  */
+
+ $("#blogFormId").submit(function(event){ //on submit form
 
     event.preventDefault();
 $.post('editPost.php', $("#blogFormId").serialize(), function() {
@@ -51,6 +69,10 @@ $.post('editPost.php', $("#blogFormId").serialize(), function() {
    }
   );
 
+/**
+  * Ajax call for when new registration is made
+  * DOM manipulation to display message to user when post is updated or if session failed
+  */
   
     $(".updatePost").click(function(event){ //on click at button
      event.preventDefault();
@@ -76,12 +98,14 @@ $.post('editPost.php', $("#blogFormId").serialize(), function() {
    }
   );
  
-
-$("#topPosts").click(function(){
+/**
+  * Ajax call for when link is clicked to sort posts
+  * DOM manipulation to display returned data
+  */
+$("#topPosts").click(function(){ //on clicked link
 
     $.post('postSortBy.php', {action:'topPosts'},function(data) {
    console.log( "success" );
-//    $('#articles').html(data);
       $('#header2').text("sorted by most likes");
     let html="";
     data = JSON.parse(data)
@@ -104,7 +128,11 @@ $("#topPosts").click(function(){
   });
  });
 
-  $("#lastPosted").click(function(){
+/**
+  * Ajax call for when link is clicked to sort posts
+  * DOM manipulation to display returned data
+  */
+  $("#lastPosted").click(function(){ //on clicked link
 
     $.post('postSortBy.php', {action:'lastPosted'},function(data) {
   console.log( "success" );
@@ -131,7 +159,11 @@ $("#topPosts").click(function(){
   });
  });
 
- $("#postedByA").click(function(){
+/**
+  * Ajax call for when link is clicked to sort posts
+  * DOM manipulation to display returned data
+  */
+ $("#postedByA").click(function(){ //on clicked link
 
     $.post('postSortBy.php', {action:'postedByA'},function(data) {
    console.log( "success" );
@@ -157,12 +189,14 @@ $("#topPosts").click(function(){
     console.log( "finished" );
   });
  });
-
-  $("#postedByZ").click(function(){
+/**
+  * Ajax call for when link is clicked to sort posts
+  * DOM manipulation to display returned data
+  */
+  $("#postedByZ").click(function(){ //on clicked link
 
     $.post('postSortBy.php', {action:'postedByZ'},function(data) {
    console.log( "success" );
-//    $('#articles').html(data);
     $('#header2').text("sorted by publisher ö-a");
        let html="";
     data = JSON.parse(data)
@@ -186,9 +220,12 @@ $("#topPosts").click(function(){
   });
  });
 
+/**
+  * Ajax call for when heart icon is clicked to like/unlike post
+  * DOM manipulation to update icon style and attribute
+  */
 
-
-$(".like").click(function(){
+$(".like").click(function(){ //on clicked heart icon
   if($(this).attr('title') == 'Like'){
       console.log($(this).attr('id'));
    $that = $(this);

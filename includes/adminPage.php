@@ -11,7 +11,6 @@ include 'navbar.php';
 
 <div class="container flex-items-xs-center">
  <header class="container flex-items-xs-center my-2">
- <!--<h2 class="text-uppercase text-xs-center">All blogposts</h2>-->
  <h2 class="text-uppercase text-xs-center"><?php echo $header;?></h2>
 </header>
 <div class="row flex-items-xs-center my-2">

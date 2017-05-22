@@ -19,7 +19,6 @@ $error = false;
   $name = strip_tags($name);
   $name = htmlspecialchars($name);
  
-  
   $pass = trim($_POST['password']);
   $pass = strip_tags($pass);
   $pass = htmlspecialchars($pass);
@@ -64,7 +63,7 @@ $error = false;
    $error = true;
   echo " Password must have atleast 6 characters.";
   }
-//if no errors insert new user and return success
+//if no errors call class Users function newUser to create new user and echo success
  if(!$error) {
  $pdo = Database::connect();
  $user = new Users($pdo);

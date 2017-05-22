@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  
-  <title>POST BLOG POST</title>
+  <title>THE NR 1 BLOG</title>
 
 
 </head>

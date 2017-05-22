@@ -11,6 +11,8 @@ class Likes
   }
  /**
   * Gets rowcount for selected post for user.
+  *
+  * @param int selected post id and user id
   */
 public function getPostLikes($postId,$uid){
    $sql=$this->pdo->prepare("SELECT * FROM Likes WHERE postId=? and userId=?");
@@ -22,6 +24,8 @@ return $sql->rowCount();
 
  /**
   * Inserts like for post from user.
+  *
+  * @param int selected post id and user id
   */
 public function insertLikes($postId, $uid){
 
@@ -32,6 +36,8 @@ public function insertLikes($postId, $uid){
 }
  /**
   * Deletes like for post from user.
+  *
+  * @param int selected post id and user id
   */
 public function deleteLikes($postId, $uid){
    $sql=$this->pdo->prepare("DELETE FROM Likes WHERE postId=? AND userId=?");

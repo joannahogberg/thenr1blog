@@ -41,7 +41,7 @@ class Blogpost
   */
  
   public function __construct($pdo, $data=array() ) {
-$this->pdo = $pdo;
+    $this->pdo = $pdo;
     if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
     if ( isset( $data['title'] ) ) $this->title = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['title'] );
     if ( isset( $data['content'] ) ) $this->content = $data['content'];
@@ -86,9 +86,6 @@ WHERE Blogposts.id=:id");
   /**
   * Returns all (or a range of) blogpost objects in the DB
   *
-  * @param int Optional The number of rows to return (default=all)
-  * @param string Optional column by which to order the Blogposts (default="datePosted DESC")
-  * @return Array|false A two-element array : results => array, a list of blogpost objects; totalRows => Total number of Blogposts
   */
  
   public function getPosts(){
@@ -103,7 +100,10 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
 
 }
 
- 
+   /**
+  * Returns all (or a range of) blogpost objects posted by a selected user
+  * @param int user id
+  */
   public function getMyPosts($userId){
 $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id WHERE userId=? ORDER BY Blogposts.datePosted DESC");
 
@@ -114,7 +114,10 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
   return $data;
 
 }
- 
+  /**
+  * Returns 5 latest blogpost objects 
+  * @param int user id
+  */
  public function listLatestPost(){
    
     $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Blogposts.datePosted DESC LIMIT 5");
@@ -128,7 +131,9 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
 
 
  }
-
+ /**
+  * Returns all blogposts sorted by id
+  */
  public function listById(){
     $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Blogposts.id DESC");
     $st->execute();
@@ -136,7 +141,9 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
   return $data;
 
  }
-
+ /**
+  * Returns all blogposts sorted by most likes
+  */
   public function listByLikes(){
     $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Blogposts.likes DESC");
     $st->execute();
@@ -144,7 +151,9 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
   return $data;
 
  }
-
+/**
+  * Returns all blogposts sorted by publisher ordered by ASC
+  */
   public function listByPublisherASC(){
    
     $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Users.username ASC");
@@ -152,7 +161,9 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
   $data = $st->fetchAll(PDO::FETCH_ASSOC);
   return $data;
  }
-
+/**
+  * Returns all blogposts sorted by publisher ordered by DESC
+  */
    public function listByPublisherDESC(){
    
     $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.title, Blogposts.likes, Blogposts.content, Blogposts.datePosted, Users.username FROM Blogposts INNER JOIN Users ON Blogposts.userId = Users.id ORDER BY Users.username DESC");
@@ -168,8 +179,8 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
  
   /**
   * Inserts the current blogpost object into the database, and sets its ID property.
+  * @param int user id
   */
- 
   public function insert($userId) {
 
    
@@ -188,8 +199,8 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
  
   /**
   * Updates the current blogpost object in the database.
+  * @param database
   */
- 
   public function update($pdo) {
 
      $st = $pdo->prepare("UPDATE Blogposts SET datePosted=:datePosted, title=:title, content=:content WHERE id = :id");
@@ -203,8 +214,8 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
  
   /**
   * Deletes the current blogpost object from the database.
+  * @param int selected post id 
   */
- 
   public function delete($delPost) {
 
 
@@ -215,6 +226,7 @@ $st = $this->pdo->prepare("SELECT Blogposts.id, Blogposts.userId, Blogposts.titl
 
  /**
   * Updates likes+1 for selected post.
+  * @param int selected post id 
   */
  public function setLike($postId){
 echo"hello";
@@ -225,8 +237,8 @@ echo"hello";
 
  /**
   * Updates likes-1 for selected post.
+  * @param int selected post id 
   */
-
 public function removeLike($postId){
 echo"hello";
    $st=$this->pdo->prepare("UPDATE `Blogposts`SET likes=likes-1 WHERE id=?");

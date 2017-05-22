@@ -9,11 +9,12 @@ class Users
     $this->pdo = $pdo;
   }
 
-
+/**
+  * Returns user with username of param
+  * @param string username provided by register form input field
+  */
 public function getUser($user){
 
-
-  
     $st = $this->pdo->prepare("
     SELECT * FROM Users 
     WHERE username = :username");
@@ -25,6 +26,11 @@ public function getUser($user){
 
 }
 
+/**
+  * Inserts and creates a new user
+  *
+  * @param Array userinfo provided by register form 
+  */
 public function newUser($userInfo){
 
 $pass = password_hash($userInfo['password'], PASSWORD_DEFAULT);
@@ -39,10 +45,6 @@ $pass = password_hash($userInfo['password'], PASSWORD_DEFAULT);
   ":role" => 'viewer'
 ]);
 
-
-
 }
-
-
 
 }

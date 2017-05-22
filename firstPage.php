@@ -1,7 +1,6 @@
   <?php 
-  // session_start();
- require 'header.php'; 
- include 'navbar.php';?>
+ require 'includes/header.php'; 
+ include 'includes/navbar.php';?>
 
 <div class="container mt-3">
 <header class="row  m-1">
@@ -24,4 +23,4 @@
  </div>
   <?php 
  
- require 'footer.php'; ?>
+ require 'includes/footer.php'; ?>

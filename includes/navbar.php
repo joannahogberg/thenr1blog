@@ -14,7 +14,7 @@
   <?php }?>
          <?php }
           else if (!isset($_SESSION['username'])){     ?> 
-            <p class="nav navbar-text navbar-left"> <a class="navbar-link" href='includes/loginForm.php'>Login <span class="glyphicon glyphicon-log-in"></span></a></p>              
+            <p class="nav navbar-text navbar-left">To be able to view all BlogPosts go to&nbsp; <a class="navbar-link" href='includes/loginForm.php'>Login <span class="glyphicon glyphicon-log-in"></span></a>&nbsp; page</p>              
   <?php }?>
   
 </div>

@@ -1,21 +1,17 @@
 <?php
 session_start();
-
 require '../errors.php';
 require '../classes/Users.php';
 require '../classes/Blogpost.php';
 require '../classes/Database.php';
 require '../classes/Likes.php';
 
-
+// get action from button onclick actions
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
 
+
 switch ( $action ) {
-  case 'newBlogpost':
-    newPost();
-    break;
   case 'editPost':
- 
     editPost();
     break;
   case 'listMyPosts':
@@ -27,11 +23,15 @@ switch ( $action ) {
   case 'readPost':
     readPost();
     break;
-
   default:
-    test();
+    checkUserRole();
 }
  
+
+  /**
+  * Function to list all blogposts crated by $_SESSION['userId']
+  * Sets header to All my posts
+  */
 function myPosts(){
     $pdo = Database::connect();
     $posts = new Blogpost($pdo);
@@ -41,43 +41,26 @@ function myPosts(){
  require("userPage.php" );
 
 }
- 
-function newPost() {
-    $pdo = Database::connect();
-    $blogpost = new Blogpost($pdo);    
-    $blogpost->insert($_SESSION['userId']);
-    checkUserRole();
-}
- 
- 
+
+  /**
+  * Function to insert selected post to edit into editForm
+  *
+  */
 function editPost() {
-  
-if ( isset( $_POST['saveChanges'] ) ) {
-  $pdo = Database::connect();
-  $postEdited = new Blogpost($pdo);
-  $postEdited -> storeFormValues($_POST);
-  $postEdited -> update($pdo);
-  checkUserRole();
- 
-  } 
-  else if ( isset( $_POST['cancel'] ) ) {
-    checkUserRole();
- 
-  } 
-  else {
     $id = $_GET['postId'];
     $pdo = Database::connect();
     $postToEdit = new Blogpost($pdo);
     $post = $postToEdit->getById($id);
-  
   include 'editForm.php';
-  }
+
  
 
   }
-
+ /**
+  * Function to open selected post in new template selected post to edit into editForm
+  *
+  */
   function readPost(){
-
   $id = $_GET['postId'];
   $pdo = Database::connect();
   $postToRead = new Blogpost($pdo);
@@ -88,6 +71,10 @@ if ( isset( $_POST['saveChanges'] ) ) {
 
   }
  
+  /**
+  * Function to delete selected post 
+  * after post is deleted go to checkUserRole() function
+  */
  
 function deletePost() {
   $id = $_GET['postId'];
@@ -98,7 +85,10 @@ function deletePost() {
   checkUserRole();
 }
   
-
+ /**
+  * Function that checks see if user is logged in and what role user has to direct user to right template
+  * Sets header to All blogposts
+  */
 
 function checkUserRole(){	
 	
@@ -107,6 +97,7 @@ function checkUserRole(){
   		$pdo = Database::connect();
    		$posts = new Blogpost($pdo);
   		$data = $posts->getPosts();
+        $header = "All BlogPosts";
 		include 'adminPage.php';
  
 	}elseif($_SESSION['loggedIn'] &&  $_SESSION['role'] == 'user')
@@ -119,5 +110,8 @@ function checkUserRole(){
 		include 'viewerPage.php';
 		
 	}
+  else{
+    include 'loginForm.php';
+  }
 	
 } 
