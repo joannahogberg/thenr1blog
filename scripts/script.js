@@ -14,7 +14,7 @@ $(document).ready(function(){
 $("#regForm").submit(function(event){ //on submit form
 
       event.preventDefault();
-
+// Send form data using Ajax requests
 $.post( 'postLogReg.php', $("#regForm").serialize())
   .done(function( data ) {
         console.log(data);
@@ -50,6 +50,7 @@ $.post( 'postLogReg.php', $("#regForm").serialize())
  $("#blogFormId").submit(function(event){ //on submit form
 
     event.preventDefault();
+    // Send form data using Ajax requests
 $.post('editPost.php', $("#blogFormId").serialize(), function() {
   console.log($("#blogFormId").serialize());
 })
@@ -78,6 +79,7 @@ $.post('editPost.php', $("#blogFormId").serialize(), function() {
     $(".updatePost").click(function(event){ //on click at button
      event.preventDefault();
     if($(this).attr('value')== 'save'){
+      // Send form data using Ajax requests
     $.post('editPost.php', $("#editForm").serialize(), function() { 
     })
   .done(function(data) {
@@ -102,9 +104,10 @@ $.post('editPost.php', $("#blogFormId").serialize(), function() {
 /**
   * Ajax call for when link is clicked to sort posts
   * DOM manipulation to display returned data
+  * JavaScript function JSON.parse() to convert returned data from ajax call into a JavaScript object
   */
 $("#topPosts").click(function(){ //on clicked link
-
+// Request the postSortBy.php page and send action data along then get content which has been returned in json format
     $.post('postSortBy.php', {action:'topPosts'},function(data) {
    console.log( "success" );
       $('#header2').text("sorted by most likes");
@@ -132,12 +135,13 @@ $("#topPosts").click(function(){ //on clicked link
 /**
   * Ajax call for when link is clicked to sort posts
   * DOM manipulation to display returned data
+  * JavaScript function JSON.parse() to convert returned data from ajax call into a JavaScript object
   */
   $("#lastPosted").click(function(){ //on clicked link
-
+// Request the postSortBy.php page and send action data along then get content which has been returned in json format
     $.post('postSortBy.php', {action:'lastPosted'},function(data) {
   console.log( "success" );
-//    $('#articles').html(data);
+
    $('#header2').text("sorted by date posted");
       let html="";
     data = JSON.parse(data)
@@ -163,12 +167,13 @@ $("#topPosts").click(function(){ //on clicked link
 /**
   * Ajax call for when link is clicked to sort posts
   * DOM manipulation to display returned data
+  * JavaScript function JSON.parse() to convert returned data from ajax call into a JavaScript object
   */
  $("#postedByA").click(function(){ //on clicked link
-
+// Request the postSortBy.php page and send action data along then get content which has been returned in json format
     $.post('postSortBy.php', {action:'postedByA'},function(data) {
    console.log( "success" );
-//    $('#articles').html(data);
+
     $('#header2').text("sorted by publisher a-ö");
        let html="";
     data = JSON.parse(data)
@@ -193,9 +198,10 @@ $("#topPosts").click(function(){ //on clicked link
 /**
   * Ajax call for when link is clicked to sort posts
   * DOM manipulation to display returned data
+  * JavaScript function JSON.parse() to convert returned data from ajax call into a JavaScript object
   */
   $("#postedByZ").click(function(){ //on clicked link
-
+// Request the postSortBy.php page and send action data along then get content which has been returned in json format
     $.post('postSortBy.php', {action:'postedByZ'},function(data) {
    console.log( "success" );
     $('#header2').text("sorted by publisher ö-a");
@@ -230,6 +236,7 @@ $(".like").click(function(){ //on clicked heart icon
   if($(this).attr('title') == 'Like'){
       console.log($(this).attr('id'));
    $that = $(this);
+  //  Request the getLikes.php page and send postId and action data along
    $.post('getLikes.php', {postId:$(this).attr('id'), action:'like'},function(){
     $that.html('<span class="glyphicon glyphicon-heart"></span>');
     $that.attr('title','Unlike');
@@ -238,6 +245,7 @@ $(".like").click(function(){ //on clicked heart icon
   }else{
    if($(this).attr('title') == 'Unlike'){
     $that = $(this);
+    //  Request the getLikes.php page and send postId and action data along
     $.post('getLikes.php', {postId:$(this).attr('id'), action:'unlike'},function(){
      $that.html('<span class="glyphicon glyphicon-heart-empty"></span>');
      $that.attr('title','Like');
