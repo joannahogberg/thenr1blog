@@ -5,6 +5,7 @@ require '../classes/Users.php';
 require '../classes/Blogpost.php';
 require '../classes/Database.php';
 
+// get action from button onclick actions
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
 
 switch ( $action ) {
@@ -152,8 +153,8 @@ function listBlogposts(){
 }
 else{
   require("loginForm.php" );
+ 
 }
 
 }
   
- 

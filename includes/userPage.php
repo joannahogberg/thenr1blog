@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include 'header.php';
+include '../header.php';
 include 'navbar.php';
 require '../errors.php';
 
@@ -38,4 +38,4 @@ foreach ( $data as $row ) : ?>
  
  </div>
 
-  <?php include 'footer.php'; ?>
+  <?php include '../footer.php'; ?>

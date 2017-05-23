@@ -18,6 +18,7 @@ $("#regForm").submit(function(event){ //on submit form
 $.post( 'postLogReg.php', $("#regForm").serialize())
   .done(function( data ) {
         console.log(data);
+        //Check if returned data is success
         if(data == "success"){
        $('#messReg').html('<div class"col"><p class="text-xs-center">Successfully registered, you may login now <span class="glyphicon glyphicon-thumbs-up"></span></p></div>');
 }

@@ -4,7 +4,7 @@
 }
 
  require '../errors.php';
-  require 'header.php';
+  require '../header.php';
   require 'navbar.php';
   ?>
 <div class="container flex-items-xs-center">
@@ -39,4 +39,4 @@ foreach ( $data as $row ) : ?>
  </div>
  </div>
 
- <?php include 'footer.php'; ?>
+ <?php include '../footer.php'; ?>

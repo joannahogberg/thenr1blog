@@ -1,6 +1,7 @@
 <nav class="navbar navbar-light bg-faded">
   <div class="container">
           <?php 
+        //   check if isset($_SESSION['username']) and display correct nav links
           if(isset($_SESSION['username'])){ 
             if($_SESSION['myPosts'] == true){;
             ?> 

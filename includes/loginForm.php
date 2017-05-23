@@ -2,8 +2,8 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include '../errors.php';
-include 'header.php';
+
+require '../header.php';
 
 ?>
  <div "container">
@@ -83,5 +83,5 @@ include 'header.php';
 
  <?php 
  
- require 'footer.php'; ?>
+ require '../footer.php'; ?>
  

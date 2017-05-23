@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include 'header.php';
+include '../header.php';
 include 'navbar.php';
 ?> 
 <div class="container flex-items-xs-center">
@@ -43,4 +43,4 @@ include 'navbar.php';
       <div id="form-messages"></div>
   </div>
 </div>
-  <?php include 'footer.php'; ?>
+  <?php include '../footer.php'; ?>

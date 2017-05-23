@@ -1,27 +1,17 @@
 <?php
-session_start();
+// session_start();
 require 'errors.php';
 require 'classes/Blogpost.php';
 require 'classes/Database.php';
 
 
-//Unset $_SESSION['values'] to make sure navigation will work
- unset( $_SESSION['username']);
- unset( $_SESSION['loggedIn']);
- unset( $_SESSION['role']);
- unset( $_SESSION['userId']);
-
-
-function listPosts() {
+(function(){
     $pdo = Database::connect();
    $posts = new Blogpost($pdo);
   $data = $posts->listLatestPost();
-  // include 'includes/firstPage.php';
-  include 'firstPage.php';
-}
-
-listPosts();
-
+ 
+  include 'includes/firstPage.php';
+})();
 
 
 

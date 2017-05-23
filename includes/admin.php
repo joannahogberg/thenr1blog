@@ -58,6 +58,7 @@ function editPost() {
   }
  /**
   * Function to open selected post in new template selected post to edit into editForm
+  * Get rowcount for likes for blogpost and user
   *
   */
   function readPost(){

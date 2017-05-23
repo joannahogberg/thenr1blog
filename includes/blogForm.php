@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 require '../errors.php';
-include 'header.php';
+include '../header.php';
 include 'navbar.php';
 ?>
 
@@ -37,4 +37,4 @@ include 'navbar.php';
   </form>
 </div>
 </div>
-<?php include 'footer.php'; ?>
+<?php include '../footer.php'; ?>

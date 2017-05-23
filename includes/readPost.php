@@ -2,9 +2,9 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-require 'header.php';
-include 'navbar.php';
-require '../errors.php';
+require '../header.php';
+require 'navbar.php';
+
 ?>
 
 <div class="container flex-items-xs-center">
@@ -47,4 +47,4 @@ require '../errors.php';
  </div>
       <?php 
  
- require 'footer.php'; ?>
+ require '../footer.php'; ?>
