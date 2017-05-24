@@ -58,7 +58,7 @@ function editPost() {
   }
  /**
   * Function to open selected post in new template selected post to edit into editForm
-  * Get rowcount for likes for blogpost and user
+  * Get rowcount for likes for blogpost and user to check if user has allready liked selected post
   *
   */
   function readPost(){
@@ -67,7 +67,7 @@ function editPost() {
   $postToRead = new Blogpost($pdo);
   $post = $postToRead->getById($id);
   $getLikes= new Likes($pdo);
-  $rowcount = $getLikes->getPostLikes($id,$_SESSION['userId']);
+  $rowcount = $getLikes->getPostLikes($id, $_SESSION['userId']);
   include 'readPost.php';
 
   }

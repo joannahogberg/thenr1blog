@@ -5,7 +5,7 @@ require '../classes/Users.php';
 require '../classes/Blogpost.php';
 require '../classes/Database.php';
 
-
+//Get action from ajax post() call
 $action=$_POST['action'];
 
 if($action == 'topPosts'){
@@ -13,6 +13,7 @@ if($action == 'topPosts'){
    $posts = new Blogpost($pdo);
   $data = $posts->listByLikes();
 // sortPosts($data);
+// json_encode() to convert objects in PHP into JSON format 
 echo json_encode($data);
 }
 elseif ($action == 'lastPosted'){
@@ -20,6 +21,7 @@ elseif ($action == 'lastPosted'){
    $posts = new Blogpost($pdo);
   $data = $posts->listById();
 // sortPosts($data);
+// json_encode() to convert objects in PHP into JSON format 
 echo json_encode($data);
 }
 elseif ($action == 'postedByA'){
@@ -27,6 +29,7 @@ elseif ($action == 'postedByA'){
    $posts = new Blogpost($pdo);
   $data = $posts->listByPublisherASC();
 // sortPosts($data);
+// json_encode() to convert objects in PHP into JSON format 
 echo json_encode($data);
 }
 elseif ($action == 'postedByZ'){
@@ -34,6 +37,7 @@ elseif ($action == 'postedByZ'){
    $posts = new Blogpost($pdo);
   $data = $posts->listByPublisherDESC();
 // sortPosts($data);
+// json_encode() to convert objects in PHP into JSON format 
 echo json_encode($data);
 }
 
