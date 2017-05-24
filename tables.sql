@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 16, 2017 at 11:59 AM
+-- Generation Time: May 24, 2017 at 11:20 AM
 -- Server version: 5.6.34
 -- PHP Version: 7.1.0
 
@@ -34,12 +34,9 @@ CREATE TABLE `Blogposts` (
 --
 
 INSERT INTO `Blogposts` (`id`, `userId`, `title`, `likes`, `content`, `datePosted`) VALUES
-(16, 9, 'Joanna loves Lucas a LOT!', 5, 'Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!', '2017-05-04'),
-(17, 7, 'Admin testing', 3, 'Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!', '2017-04-08'),
+(16, 9, 'Joanna loves Lucas a LOT!', 6, 'Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!', '2017-05-04'),
 (29, 7, 'Admin testing a little bit more', 1, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-09'),
-(31, 7, 'And another one...', 2, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-09'),
 (35, 18, 'Owen first post', 0, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-09'),
-(44, 7, 'Samir testing', 3, 'Hello', '2017-05-10'),
 (45, 7, 'Hello again', 1, 'Wazzup', '2017-05-10'),
 (46, 7, 'Wazzzzzuuuup!', 1, 'Ball tip turkey leberkas boudin. Drumstick pancetta jerky, venison meatloaf ground round spare ribs kevin pig prosciutto. Kielbasa swine cow flank, pork t-bone spare ribs tri-tip doner venison drumstick pancetta pork chop tail. Beef tail chuck, prosciutto kevin ham hock shank hamburger cupim.', '2017-05-10'),
 (47, 7, 'Wazzup Owen', 1, 'Ball tip turkey leberkas boudin. Drumstick pancetta jerky, venison meatloaf ground round spare ribs kevin pig prosciutto. Kielbasa swine cow flank, pork t-bone spare ribs tri-tip doner venison drumstick pancetta pork chop tail. Beef tail chuck, prosciutto kevin ham hock shank hamburger cupim.', '2017-05-10'),
@@ -48,15 +45,10 @@ INSERT INTO `Blogposts` (`id`, `userId`, `title`, `likes`, `content`, `datePoste
 (51, 7, 'More bacon', 0, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-10'),
 (52, 7, 'Bring the nuggets', 0, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-10'),
 (55, 7, 'Bacon ipsum for everyone!', 0, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-10'),
-(57, 7, 'sick of this shit', 0, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-10'),
-(58, 7, 'Okokokok!', 0, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-10'),
 (59, 7, 'Again and again', 0, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-10'),
-(60, 7, 'Hello again okokok!', 0, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-10'),
-(61, 7, 'Test post', 0, ' <p><a href=\"login.php\"><span class=\"glyphicon glyphicon-menu-left\"></span> Back to list</a></p>', '2017-05-10'),
-(62, 7, 'Rocco in tha house', 2, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-11'),
-(67, 9, 'test 123...', 0, 'hello', '2017-05-15'),
-(68, 9, 'Joanna testing', 0, 'hello', '2017-05-15'),
-(69, 9, 'Joanna testing', 0, 'Hello', '2017-05-15');
+(62, 7, 'Rocco in tha house', 3, 'Kielbasa sausage brisket, bacon meatloaf jerky shoulder picanha. Ground round chuck beef kevin swine pastrami cow meatball pork chop pig. Beef tenderloin andouille alcatra shank brisket. Ham beef ribs kielbasa, spare ribs pastrami jerky burgdoggen jowl pig. Cupim turkey picanha pork swine chuck salami spare ribs tenderloin tri-tip sirloin chicken. Kevin sausage pastrami corned beef bresaola venison. Drumstick cupim pork belly hamburger burgdoggen beef spare ribs.', '2017-05-11'),
+(75, 7, 'Admin getting down with it', 3, 'Corned beef fatback meatball, frankfurter andouille biltong turkey pancetta turducken kielbasa pastrami bacon jowl meatloaf. Venison corned beef porchetta bresaola, ribeye ham hock pancetta cupim kevin fatback flank leberkas shankle t-bone jerky. Ham hock ham shank tri-tip alcatra. Jowl hamburger chicken swine ribeye pork belly venison meatloaf drumstick chuck shank fatback kielbasa. Flank shoulder tenderloin short ribs jerky bresaola. Ball tip porchetta swine pig kielbasa.', '2017-05-23'),
+(78, 9, 'Cold as Ice..', 4, 'Shankle filet mignon short ribs turkey pork loin pork boudin alcatra. Pork loin ribeye chicken, drumstick chuck beef ribs ball tip fatback sausage alcatra ground round. Tenderloin ribeye corned beef pig meatloaf chicken doner ball tip venison chuck filet mignon jowl turkey prosciutto hamburger. Meatloaf spare ribs filet mignon kevin biltong sirloin andouille tail. Ribeye leberkas pork andouille, burgdoggen fatback ball tip pig capicola picanha ham hock shank.', '2017-05-23');
 
 -- --------------------------------------------------------
 
@@ -114,7 +106,25 @@ INSERT INTO `Likes` (`id`, `postId`, `userId`) VALUES
 (301, 45, 12),
 (303, 27, 9),
 (304, 63, 9),
-(307, 44, 12);
+(307, 44, 12),
+(308, 67, 9),
+(309, 67, 12),
+(317, 73, 9),
+(321, 75, 12),
+(324, 75, 13),
+(325, 77, 9),
+(326, 78, 9),
+(327, 77, 13),
+(328, 78, 13),
+(329, 77, 12),
+(330, 78, 12),
+(331, 77, 18),
+(332, 78, 18),
+(333, 77, 8),
+(334, 77, 30),
+(335, 62, 11),
+(336, 16, 11),
+(337, 75, 32);
 
 -- --------------------------------------------------------
 
@@ -149,7 +159,10 @@ INSERT INTO `Users` (`id`, `username`, `password`, `role`, `userEmail`) VALUES
 (26, 'jermaine', '$2y$10$qktjiSSl0jWcEXtCJ68sPOCC3QX5rYy.Y/sJxGz9sFeO7AXh/qhaC', 'viewer', 'jermaine@gmail.com'),
 (27, 'testing', '$2y$10$MnoBlXc4WARpNuVcNAyBwOHAEc/LkCbLvFZNDcfg9QJwSsEET4irO', 'viewer', 'test@test.com'),
 (28, 'rocco dog', '$2y$10$B0EFxK.0Q65vALyy8GnJ4eNfYi52m3YrCIc/uvELL8TG8bYeCdRvm', 'viewer', 'rocco@gmail.com'),
-(29, 'orjan', '$2y$10$kgahYADwe9cgCe3jMsu4.OsX7HFLjt8pxSMmwS6i1OlogU2eWCRXG', 'viewer', 'orjan@gmail.com');
+(29, 'orjan', '$2y$10$kgahYADwe9cgCe3jMsu4.OsX7HFLjt8pxSMmwS6i1OlogU2eWCRXG', 'viewer', 'orjan@gmail.com'),
+(30, 'anneli', '$2y$10$s7Mp/bVgRGvsp.BOwN6MP.FTvu9mebtHvG1/OpagmAEgGgfIZ/wrK', 'viewer', 'anneli@gmail.com'),
+(31, 'magnus', '$2y$10$OYyGuEVwOyQ6Ex6qMol51ulbp0xzlD/6rc76AIJt3mqkyg8DdNWOi', 'viewer', 'magnus@gmail.com'),
+(32, 'cilla', '$2y$10$A3MclEb5vldWpBDEYcdO7.s8JgTWsnUNV8xsGDVNQJANna5v/0Qo6', 'viewer', 'cilla@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -182,14 +195,14 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Blogposts`
 --
 ALTER TABLE `Blogposts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT for table `Likes`
 --
 ALTER TABLE `Likes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=338;
 --
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
